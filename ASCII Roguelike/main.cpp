@@ -3,15 +3,17 @@
 #include <string>
 #include <conio.h>
 
-#include "GameUtils.h"
+#include "GameCore.h"
 
 int main() {
 
-	GameUtils utils;
-	std::cout << "hi";
-	utils.clearScreen();
+	GameCore core;
+
+	core.prepareLevel(1);
+	core.printLevel();
 
 	system("PAUSE");
 	return 0;
 
 }
+
