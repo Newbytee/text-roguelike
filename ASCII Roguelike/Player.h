@@ -8,12 +8,15 @@ public:
 
 	int modPlayerHealth(int mod);
 
-	int getPlayerX() { return _coordinates[0]; };
-	int getPlayerY() { return _coordinates[1]; };
+	int getPlayerX() { return _playerX; };
+	int getPlayerY() { return _playerY; };
+	void setPlayerX(int x) { _playerX = x; };
+	void setPlayerY(int y) { _playerY = y; };
 
 private:
 
-	int _coordinates[2];
+	int _playerX;
+	int _playerY;
 	int _health;
 	int _maxHealth;
 	int _gold;

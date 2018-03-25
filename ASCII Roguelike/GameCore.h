@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+#include "Player.h"
+
 class GameCore {
 
 public:
@@ -11,7 +13,7 @@ public:
 
 	void clearScreen();
 	void prepareLevel(int levelN);
-	void printLevel(/*, Player player*/);
+	void printLevel(Player player);
 
 	//setters
 

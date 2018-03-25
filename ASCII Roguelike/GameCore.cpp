@@ -1,5 +1,4 @@
 #include "GameCore.h"
-#include "Player.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -40,7 +39,7 @@ void GameCore::prepareLevel(int levelN) {
 
 }
 
-void GameCore::printLevel(/*, Player player*/) {
+void GameCore::printLevel(Player player) {
 
 	int levelYSize = _level.size();
 
