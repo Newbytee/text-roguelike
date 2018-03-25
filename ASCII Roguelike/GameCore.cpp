@@ -42,6 +42,18 @@ void GameCore::prepareLevel(int levelN) {
 
 void GameCore::printLevel(/*, Player player*/) {
 
-	printf("hi");
+	int levelYSize = _level.size();
+
+	for (int x = 0; x < levelYSize; x++) {
+
+		for (int y = 0; y < _level[x].length(); y++) {
+
+			printf("%c", _level[x][y]);
+
+		}
+
+		printf("\n");
+
+	}
 
 }
