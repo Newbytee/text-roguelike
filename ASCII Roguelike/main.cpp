@@ -24,7 +24,7 @@ int main() {
 
 void initPlayer(Player &tmpPlayer) {
 
-	tmpPlayer.setPlayerX(3);
-	tmpPlayer.setPlayerY(3);
+	tmpPlayer.setPlayerX(2);
+	tmpPlayer.setPlayerY(2);
 
 }
