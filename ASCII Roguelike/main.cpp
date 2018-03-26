@@ -5,6 +5,8 @@
 
 #include "GameCore.h"
 
+void initPlayer(Player &tmpPlayer);
+
 int main() {
 
 	GameCore core;
@@ -22,7 +24,7 @@ int main() {
 
 void initPlayer(Player &tmpPlayer) {
 
-	tmpPlayer.setPlayerX = 3;
-	tmpPlayer.setPlayerY = 3;
+	tmpPlayer.setPlayerX(3);
+	tmpPlayer.setPlayerY(3);
 
 }
