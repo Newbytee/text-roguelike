@@ -19,7 +19,7 @@ int Enemy::modEnemyHealth(int mod) {
 	}
 	else if (_health + mod < _health) {
 
-		//player dies
+		//enemy dies
 
 		if (_health < mod) {
 
