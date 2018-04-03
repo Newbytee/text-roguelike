@@ -19,18 +19,31 @@ int main() {
 	initPlayer(player);
 
 	core.prepareLevel(1);
-	core.printLevel(player);
+	//core.printLevel(player);
 
 	while (gameIsRunning) {
 
 		switch (input.getKeypress()) {
 
-
+		case 'a':
+			player.setPlayerX(player.getPlayerX() - 1);
+			break;
+		case 'w':
+			player.setPlayerY(player.getPlayerY() + 1);
+			break;
+		case 's':
+			player.setPlayerY(player.getPlayerY() - 1);
+			break;
+		case 'd':
+			player.setPlayerX(player.getPlayerX() + 1);
+			break;
 
 		}
 
-		
+		core.printLevel(player);
 
+		std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
+				
 	}
 
 	system("PAUSE");

@@ -39,6 +39,12 @@ void GameCore::prepareLevel(int levelN) {
 
 }
 
+void GameCore::resetLevel() {
+
+
+
+}
+
 void GameCore::printLevel(Player player) {
 
 	_level[player.getPlayerX()][player.getPlayerY()] = '&';
@@ -56,7 +62,5 @@ void GameCore::printLevel(Player player) {
 		printf("\n");
 
 	}
-
-	prepareLevel(_currentLevel);
 
 }

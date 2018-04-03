@@ -13,7 +13,12 @@ public:
 
 	void clearScreen();
 	void prepareLevel(int levelN);
+	void resetLevel();
 	void printLevel(Player player);
+
+	//getters
+
+	int getCurrentLevel() { return _currentLevel; };
 
 	//setters
 
