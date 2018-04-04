@@ -56,13 +56,13 @@ void GameCore::resetLevel() {
 
 void GameCore::printLevel(Player player) {
 
-	_level[player.getPlayerX()][player.getPlayerY()] = '&';
+	_level[player.getPlayerY()][player.getPlayerX()] = '&';
 
 	int levelYSize = _level.size();
 
 	for (int x = 0; x < levelYSize; x++) {
 
-		for (int y = 0; y < _level[x].length(); y++) {
+		for (unsigned int y = 0; y < _level[x].length(); y++) {
 
 			printf("%c", _level[x][y]);
 

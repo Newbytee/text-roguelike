@@ -18,8 +18,13 @@ int main() {
 
 	initPlayer(player);
 
+	std::cout << "\n\n\n\n";
+
 	core.prepareLevel(1);
-	//core.printLevel(player);
+	core.printLevel(player);
+	core.resetLevel();
+
+	std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
 
 	while (gameIsRunning) {
 
@@ -29,10 +34,10 @@ int main() {
 			player.setPlayerX(player.getPlayerX() - 1);
 			break;
 		case 'w':
-			player.setPlayerY(player.getPlayerY() + 1);
+			player.setPlayerY(player.getPlayerY() - 1);
 			break;
 		case 's':
-			player.setPlayerY(player.getPlayerY() - 1);
+			player.setPlayerY(player.getPlayerY() + 1);
 			break;
 		case 'd':
 			player.setPlayerX(player.getPlayerX() + 1);
@@ -55,7 +60,7 @@ int main() {
 
 void initPlayer(Player &tmpPlayer) {
 
-	tmpPlayer.setPlayerX(2);
+	tmpPlayer.setPlayerX(5);
 	tmpPlayer.setPlayerY(2);
 
 }
