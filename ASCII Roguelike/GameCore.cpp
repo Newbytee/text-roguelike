@@ -41,7 +41,16 @@ void GameCore::prepareLevel(int levelN) {
 
 void GameCore::resetLevel() {
 
+	std::ifstream levelFile("level" + std::to_string(_currentLevel) + ".txt");
+	std::string input;
 
+	_level.clear();
+
+	for (int i = 0; std::getline(levelFile, input); i++) {
+
+		_level.push_back(input + "\0");
+
+	}
 
 }
 
