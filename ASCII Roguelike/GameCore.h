@@ -19,6 +19,7 @@ public:
 	//getters
 
 	int getCurrentLevel() { return _currentLevel; };
+	int getLevelWidth(int y) { return _level[y].size() - 1; };
 
 	//setters
 

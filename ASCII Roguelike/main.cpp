@@ -45,6 +45,22 @@ int main() {
 
 		}
 
+		if (player.getPlayerX() < 0) {
+
+			player.setPlayerX(0);
+
+		} else if (player.getPlayerX() > core.getLevelWidth(player.getPlayerY())) {
+
+			player.setPlayerX(core.getLevelWidth(player.getPlayerY()));
+
+		}
+		
+		if (player.getPlayerY() < 0) {
+
+			player.setPlayerY(0);
+
+		}
+
 		core.clearScreen();
 		core.printLevel(player);
 		core.resetLevel();
@@ -60,7 +76,7 @@ int main() {
 
 void initPlayer(Player &tmpPlayer) {
 
-	tmpPlayer.setPlayerX(5);
+	tmpPlayer.setPlayerX(2);
 	tmpPlayer.setPlayerY(2);
 
 }
