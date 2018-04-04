@@ -15,6 +15,8 @@ int main() {
 	Input input;
 
 	bool gameIsRunning = true;
+	int levelWidth;
+	int levelHeight;
 
 	initPlayer(player);
 
@@ -23,6 +25,8 @@ int main() {
 	core.prepareLevel(1);
 	core.printLevel(player);
 	core.resetLevel();
+
+	levelHeight = core.getLevelHeight();
 
 	std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
 
@@ -45,19 +49,29 @@ int main() {
 
 		}
 
+		if (player.getPlayerY() >= 0 && player.getPlayerY() < levelHeight) {
+
+			levelWidth = core.getLevelWidth(player.getPlayerY());
+
+		}
+				
 		if (player.getPlayerX() < 0) {
 
 			player.setPlayerX(0);
 
-		} else if (player.getPlayerX() > core.getLevelWidth(player.getPlayerY())) {
+		} else if (player.getPlayerX() > levelWidth) {
 
-			player.setPlayerX(core.getLevelWidth(player.getPlayerY()));
+			player.setPlayerX(levelWidth);
 
 		}
 		
 		if (player.getPlayerY() < 0) {
 
 			player.setPlayerY(0);
+
+		} else if (player.getPlayerY() > levelHeight) {
+
+			player.setPlayerY(levelHeight);
 
 		}
 

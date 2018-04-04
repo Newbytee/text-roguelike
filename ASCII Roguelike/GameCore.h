@@ -20,6 +20,7 @@ public:
 
 	int getCurrentLevel() { return _currentLevel; };
 	int getLevelWidth(int y) { return _level[y].size() - 1; };
+	int getLevelHeight() { return _level.size() - 1; };
 
 	//setters
 
