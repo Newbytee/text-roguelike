@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CoordManagement.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameCore.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -122,6 +123,7 @@
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CoordManagement.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="Input.h" />

@@ -77,6 +77,7 @@ int main() {
 
 		core.clearScreen();
 		core.printLevel(player);
+		player.movePlayer(-1, 0);
 		core.resetLevel();
 		
 		std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
