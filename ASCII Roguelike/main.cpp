@@ -15,8 +15,6 @@ int main() {
 	Input input;
 
 	bool gameIsRunning = true;
-	int levelWidth;
-	int levelHeight;
 
 	initPlayer(player);
 
@@ -25,8 +23,6 @@ int main() {
 	core.prepareLevel(1);
 	core.printLevel(player);
 	core.resetLevel();
-
-	levelHeight = core.getLevelHeight();
 
 	std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
 
