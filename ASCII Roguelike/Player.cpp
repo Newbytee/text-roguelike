@@ -63,7 +63,7 @@ bool Player::movePlayer(int x, int y, char type) {
 		_playerY += y;
 		break;
 	default:
-		std::cout << "Unable to move! (" << core.getLevelValue(tmpX, tmpY) << " " << tmpX << " " << tmpY << ")";
+		std::cout << "Unable to move!";
 		break;
 
 	}

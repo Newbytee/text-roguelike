@@ -47,7 +47,7 @@ int main() {
 		case 's':
 			if (player.getPlayerY() != core.getLevelHeight() - 1) {
 
-				player.movePlayer(0, 1, core.getLevelValue(player.getPlayerX(), (player.getPlayerY() + 1)));
+				player.movePlayer(0, 1, core.getLevelValue(player.getPlayerX(), player.getPlayerY() + 1));
 
 			}
 			break;
