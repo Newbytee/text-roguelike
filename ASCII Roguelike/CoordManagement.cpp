@@ -66,17 +66,17 @@ bool CoordManagement::verifyCoords(int x, int y) {
 
 	if (y < 0) {
 
-		return true;
+		return false;
 
-	} else if (y > core.getStaticLevelHeight()) {
+	} else if (y > _levelHeight) {
 
-		std::cout << core.getStaticLevelHeight();
+		//std::cout << _levelHeight;
 
-		return true;
+		return false;
 
 	}
 
-	if (x < 0) {
+	/*if (x < 0) {
 
 		return false;
 
@@ -84,7 +84,7 @@ bool CoordManagement::verifyCoords(int x, int y) {
 
 		return false;
 
-	}
+	}*/
 	
 	return true;
 	

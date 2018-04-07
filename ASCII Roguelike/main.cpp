@@ -29,6 +29,7 @@ int main() {
 	core.resetLevel();
 
 	levelHeight = core.getLevelHeight();
+	coord.setLevelHeight(levelHeight);
 
 	std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
 
@@ -37,16 +38,32 @@ int main() {
 		switch (input.getKeypress()) {
 
 		case 'a':
-			player.setPlayerX(player.getPlayerX() - 1);
+			if (player.getPlayerX() != 0) {
+
+				player.setPlayerX(player.getPlayerX() - 1);
+
+			}
 			break;
 		case 'w':
-			player.setPlayerY(player.getPlayerY() - 1);
+			if (player.getPlayerY() != 0) {
+
+				player.setPlayerY(player.getPlayerY() - 1);
+
+			}
 			break;
 		case 's':
-			player.setPlayerY(player.getPlayerY() + 1);
+			if (player.getPlayerY() != core.getLevelHeight() - 1) {
+
+				player.setPlayerY(player.getPlayerY() + 1);
+
+			}
 			break;
 		case 'd':
-			player.setPlayerX(player.getPlayerX() + 1);
+			if (player.getPlayerX() != core.getLevelWidth(player.getPlayerY())) {
+
+				player.setPlayerX(player.getPlayerX() + 1);
+
+			}
 			break;
 
 		}
