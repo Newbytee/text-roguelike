@@ -68,37 +68,6 @@ int main() {
 		core.clearScreen();
 		core.printLevel(player);
 		core.resetLevel();
-
-		/*if (player.getPlayerY() >= 0 && player.getPlayerY() < levelHeight) {
-
-			levelWidth = core.getLevelWidth(player.getPlayerY());
-
-		}
-				
-		if (player.getPlayerX() < 0) {
-
-			player.setPlayerX(0);
-
-		} else if (player.getPlayerX() > levelWidth) {
-
-			player.setPlayerX(levelWidth);
-
-		}
-		
-		if (player.getPlayerY() < 0) {
-
-			player.setPlayerY(0);
-
-		} else if (player.getPlayerY() > levelHeight) {
-
-			player.setPlayerY(levelHeight);
-
-		}*/
-
-		//core.clearScreen();
-		//core.printLevel(player);
-		//player.movePlayer(-1, 0);
-		//core.resetLevel();
 		
 		std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
 				
