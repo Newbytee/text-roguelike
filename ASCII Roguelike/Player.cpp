@@ -1,4 +1,4 @@
-#include "Player.h"
+﻿#include "Player.h"
 #include "GameCore.h"
 
 #include <iostream>
@@ -41,6 +41,16 @@ int Player::modPlayerHealth(int mod) {
 
 }
 
+int Player::checkPos(std::vector<std::string> levelVector) {
+
+	//std::vector<std::string>
+
+	//switch()
+
+	return 0;
+
+}
+
 void Player::movePlayer(int x, int y, char type) {
 
 	GameCore core;
@@ -49,12 +59,11 @@ void Player::movePlayer(int x, int y, char type) {
 
 	switch (type) {
 
-	case '.':
-	case ',':
-		_playerX += x;
-		_playerY += y;
+	case '#':
 		break;
 	default:
+		_playerX += x;
+		_playerY += y;
 		break;
 
 	}

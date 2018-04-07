@@ -23,6 +23,7 @@ public:
 	int getLevelHeight() { return _level.size(); };
 
 	char getLevelValue(int x, int y);
+	std::vector<std::string> getLevelVector() { return _level; };
 
 	//setters
 

@@ -12,6 +12,7 @@ int main() {
 
 	GameCore core;
 	Player player;
+	Player player2;
 	Input input;
 
 	bool gameIsRunning = true;
@@ -24,7 +25,9 @@ int main() {
 	core.printLevel(player);
 	core.resetLevel();
 
-	std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
+	player2.setPlayerY(4);
+
+	std::cout << "\n\n" << player.getPlayerX() << "\t" << player2.getPlayerY() << "\n\n";
 
 	while (gameIsRunning) {
 
@@ -63,7 +66,6 @@ int main() {
 
 		core.clearScreen();
 		core.printLevel(player);
-		std::cout << core.getLevelValue(1, 1);
 		core.resetLevel();
 		
 		std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\t" << core.getLevelValue(player.getPlayerX(), player.getPlayerY()) << "\n\n";
