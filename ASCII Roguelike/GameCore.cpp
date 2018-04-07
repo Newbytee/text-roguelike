@@ -37,6 +37,8 @@ void GameCore::prepareLevel(int levelN) {
 
 	}
 
+	setStaticHeight(_level.size());
+
 }
 
 void GameCore::resetLevel() {

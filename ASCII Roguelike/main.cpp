@@ -5,6 +5,7 @@
 
 #include "GameCore.h"
 #include "Input.h"
+#include "CoordManagement.h"
 
 void initPlayer(Player &tmpPlayer);
 
@@ -13,6 +14,7 @@ int main() {
 	GameCore core;
 	Player player;
 	Input input;
+	CoordManagement coord;
 
 	bool gameIsRunning = true;
 	int levelWidth;
@@ -49,7 +51,17 @@ int main() {
 
 		}
 
-		if (player.getPlayerY() >= 0 && player.getPlayerY() < levelHeight) {
+		core.clearScreen();
+
+		if (coord.verifyCoords(player.getPlayerX(), player.getPlayerY())) {
+
+			core.printLevel(player);
+
+		}
+
+		core.resetLevel();
+
+		/*if (player.getPlayerY() >= 0 && player.getPlayerY() < levelHeight) {
 
 			levelWidth = core.getLevelWidth(player.getPlayerY());
 
@@ -73,12 +85,12 @@ int main() {
 
 			player.setPlayerY(levelHeight);
 
-		}
+		}*/
 
-		core.clearScreen();
-		core.printLevel(player);
-		player.movePlayer(-1, 0);
-		core.resetLevel();
+		//core.clearScreen();
+		//core.printLevel(player);
+		//player.movePlayer(-1, 0);
+		//core.resetLevel();
 		
 		std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
 				
