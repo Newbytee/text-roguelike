@@ -66,7 +66,7 @@ int main() {
 		std::cout << core.getLevelValue(1, 1);
 		core.resetLevel();
 		
-		std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\t" << core.getLevelValue(0, 0) << "\n\n";
+		std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\t" << core.getLevelValue(player.getPlayerX(), player.getPlayerY()) << "\n\n";
 				
 	}
 
