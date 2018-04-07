@@ -22,7 +22,7 @@ public:
 	int getLevelWidth(int y) { return _level[y].size() - 1; };
 	int getLevelHeight() { return _level.size(); };
 
-	char getLevelValue(int x, int y) { return _level[y][x]; };
+	char getLevelValue(int x, int y);
 
 	//setters
 

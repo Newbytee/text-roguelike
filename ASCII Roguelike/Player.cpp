@@ -41,20 +41,36 @@ int Player::modPlayerHealth(int mod) {
 
 }
 
-bool Player::movePlayer(int x, int y) {
+bool Player::movePlayer(int x, int y, char type) {
 
 	GameCore core;
 
-	x += _playerX;
-	y += _playerY;
+	std::cout << type;
 
-	std::cout << x << "\t" << y;
+	int tmpX = (_playerX + x), tmpY (_playerY + y);
 
-	char moveSpot = core.getLevelValue(x, y);
+	//std::cout << tmpX << "\t" << tmpY;
 
-	//std::cout << moveSpot;
+	//std::cout << core.getLevelValue(1, 1);
 
-	//switch(core.)
+	//system("PAUSE");
+
+	switch (type) {
+
+	case '.':
+	case ',':
+		_playerX += x;
+		_playerY += y;
+		break;
+	default:
+		std::cout << "Unable to move! (" << core.getLevelValue(tmpX, tmpY) << " " << tmpX << " " << tmpY << ")";
+		break;
+
+	}
+
+	//system("PAUSE");
+
+	//std::cout << x << "\t" << y;
 
 	return false;
 

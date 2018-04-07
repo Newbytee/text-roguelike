@@ -8,7 +8,7 @@ public:
 
 	int modPlayerHealth(int mod);
 
-	bool movePlayer(int x, int y);
+	bool movePlayer(int x, int y, char type);
 	int getPlayerX() { return _playerX; };
 	int getPlayerY() { return _playerY; };
 	void setPlayerX(int x) { _playerX = x; };

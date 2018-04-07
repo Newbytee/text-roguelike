@@ -33,28 +33,28 @@ int main() {
 		case 'a':
 			if (player.getPlayerX() != 0) {
 
-				player.setPlayerX(player.getPlayerX() - 1);
+				player.movePlayer(-1, 0, core.getLevelValue(player.getPlayerX() - 1, player.getPlayerY()));
 
 			}
 			break;
 		case 'w':
 			if (player.getPlayerY() != 0) {
 
-				player.setPlayerY(player.getPlayerY() - 1);
+				player.movePlayer(0, -1, core.getLevelValue(player.getPlayerX(), player.getPlayerY() - 1));
 
 			}
 			break;
 		case 's':
 			if (player.getPlayerY() != core.getLevelHeight() - 1) {
 
-				player.setPlayerY(player.getPlayerY() + 1);
+				player.movePlayer(0, 1, core.getLevelValue(player.getPlayerX(), (player.getPlayerY() + 1)));
 
 			}
 			break;
 		case 'd':
 			if (player.getPlayerX() != core.getLevelWidth(player.getPlayerY())) {
 
-				player.setPlayerX(player.getPlayerX() + 1);
+				player.movePlayer(1, 0, core.getLevelValue(player.getPlayerX() + 1, player.getPlayerY()));
 
 			}
 			break;
@@ -63,9 +63,10 @@ int main() {
 
 		core.clearScreen();
 		core.printLevel(player);
+		std::cout << core.getLevelValue(1, 1);
 		core.resetLevel();
 		
-		std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\n\n";
+		std::cout << "\n\n" << player.getPlayerX() << "\t" << player.getPlayerY() << "\t" << core.getLevelValue(0, 0) << "\n\n";
 				
 	}
 

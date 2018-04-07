@@ -64,12 +64,18 @@ void GameCore::printLevel(Player player) {
 
 		for (unsigned int y = 0; y < _level[x].length(); y++) {
 
-			printf("%c", _level[x][y]);
+			printf("%c%c", _level[x][y], ' ');
 
 		}
 
 		printf("\n");
 
 	}
+
+}
+
+char GameCore::getLevelValue(int x, int y) {
+
+	return _level[y][x];
 
 }
