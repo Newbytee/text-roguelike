@@ -5,6 +5,7 @@ class Enemy {
 public:
 
 	Enemy();
+	Enemy(int x, int y, int health, int maxHealth);
 
 	int modEnemyHealth(int mod);
 

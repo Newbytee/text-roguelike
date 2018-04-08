@@ -6,6 +6,15 @@ Enemy::Enemy() {
 
 }
 
+Enemy::Enemy(int x, int y, int health, int maxHealth) {
+
+	_enemyX = x;
+	_enemyY = y;
+	_health = health;
+	_maxHealth = maxHealth;
+
+}
+
 int Enemy::modEnemyHealth(int mod) {
 
 	if (_health + mod > _maxHealth) {
@@ -16,8 +25,7 @@ int Enemy::modEnemyHealth(int mod) {
 
 		mod -= overflowTemp;
 
-	}
-	else if (_health + mod < _health) {
+	} else if (_health + mod < _health) {
 
 		//enemy dies
 
