@@ -10,7 +10,7 @@
 #include "Enemy.h"
 
 void initPlayer(Player &tmpPlayer);
-Enemy initEnemies(GameCore core);
+std::vector<Enemy> initEnemies(GameCore core);
 
 int main() {
 
@@ -26,6 +26,7 @@ int main() {
 
 	mainCore.prepareLevel(1);
 	mainCore.printLevel(player);
+	initEnemies(mainCore);
 	mainCore.resetLevel();
 
 	std::cout << "\n\n" << player.getPlayerX() << "\t" << "\n\n";
@@ -85,27 +86,29 @@ void initPlayer(Player &tmpPlayer) {
 
 }
 
-Enemy initEnemies(GameCore core) {
+std::vector<Enemy> initEnemies(GameCore core) {
 
 	std::mt19937 randomGen(time(NULL));
 	std::uniform_int_distribution<int> randomPosY(1, core.getLevelHeight());
 	std::uniform_int_distribution<int> randomHp(core.getCurrentLevel(), core.getCurrentLevel() + 5);
 
 	const static int enemyN = core.getCurrentLevel() + 1;
-	bool validPos = true;
+	bool validPos = false;
 
 	std::vector<Enemy> enemies;
 	enemies.reserve(enemyN);
 
 	for (int i = 0; i < enemyN; i++) {
 
-		int x, y, hp, maxHp;
+		int x = 0, y = 0, hp, maxHp;
 
 		while (validPos == false) {
 
 			y = randomPosY(randomGen);
 			std::uniform_int_distribution<int> randomPosX(1, core.getLevelWidth(y));
 			x = randomPosX(randomGen);
+
+			std::cout << x << '\t' << y << '\t' << core.getLevelValue(x, y);
 
 			switch (core.getLevelValue(x, y)) {
 
@@ -125,10 +128,12 @@ Enemy initEnemies(GameCore core) {
 		std::uniform_int_distribution<int> randomMaxHp(hp, hp + 10);
 		maxHp = randomMaxHp(randomGen);
 
+		std::cout << "\n\n" << x << "\t" << y;
+
 		enemies.push_back(Enemy(x, y, hp, maxHp));
 
 	}
 
-	
+	return enemies;
 
 }
