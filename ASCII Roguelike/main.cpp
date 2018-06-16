@@ -85,7 +85,7 @@ void initPlayer(Player &tmpPlayer) {
 }
 
 std::vector<Enemy> initEnemies(GameCore core) {
-
+	//hi
 	std::mt19937 randomGen(time(NULL));
 	std::uniform_int_distribution<int> randomPosY(1, core.getLevelHeight());
 	std::uniform_int_distribution<int> randomHp(core.getCurrentLevel(), core.getCurrentLevel() + 5);
