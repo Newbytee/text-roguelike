@@ -11,8 +11,14 @@ Enemy::Enemy(int x, int y, int hp, int maxHp) {
 }
 
 int Enemy::modHealth(int mod) {
-	if (mod )
-	return 0;
+	if (mod < _hp) {
+		_hp -= mod;
+		return 0;
+	} else if (mod == _hp) {
+		return 1;
+	} else {
+		return 2;
+	}
 }
 
 void Enemy::setX(int x) {
