@@ -48,3 +48,11 @@ char Level::getChar(unsigned int x, unsigned int y) {
 int Level::getCurrentLevel() {
 	return _currentLevel;
 }
+
+int Level::getWidth() {
+	return _level[0].length();
+}
+
+int Level::getHeight() {
+	return _level.size();
+}

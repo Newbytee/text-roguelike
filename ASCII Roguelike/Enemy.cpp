@@ -29,10 +29,18 @@ void Enemy::setY(int y) {
 	_y = y;
 }
 
+void Enemy::setAttack(int attack) {
+	_attack = attack;
+}
+
 int Enemy::getX() {
 	return _x;
 }
 
 int Enemy::getY(){
 	return _y;
+}
+
+int Enemy::getAttack() {
+	return _attack;
 }
