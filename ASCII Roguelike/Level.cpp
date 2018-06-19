@@ -26,6 +26,7 @@ void Level::printLevel() {
 }
 
 void Level::initLevel(int levelNumber) {
+	_level.clear();
 	std::ifstream levelFile("level" + std::to_string(levelNumber) + ".txt");
 
 	if (!(levelFile.is_open())) {

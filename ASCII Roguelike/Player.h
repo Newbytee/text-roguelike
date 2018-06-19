@@ -3,6 +3,7 @@
 class Player {
 public:
 	int modHealth(int mod);
+	void move(int x, int y);
 	void setX(int x);
 	void setY(int y);
 

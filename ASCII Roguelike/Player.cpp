@@ -4,6 +4,11 @@ int Player::modHealth(int mod) {
 	return 0;
 }
 
+void Player::move(int x, int y) {
+	_x += x;
+	_y += y;
+}
+
 void Player::setX(int x) {
 	_x = x;
 }
