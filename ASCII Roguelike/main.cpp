@@ -14,9 +14,9 @@ int main() {
 	Level level;
 	Player player;
 	std::mt19937 randGen(time(NULL));
-	std::vector<Enemy> enemies(3);
+	std::vector<Enemy> enemies(9);
 	std::uniform_int_distribution<int> randomHp(1, 6);	
-	std::uniform_int_distribution<int> randomMove(0, 1);
+	std::uniform_int_distribution<int> randomMove(-1, 1);
 	char input;
 	bool isRunning = true;
 	bool hasWon = false;
@@ -53,11 +53,16 @@ int main() {
 				level.initLevel(level.getCurrentLevel());
 
 				for (int i = 0; i < enemies.size(); i++) {
-					enemies[i].move(randomMove(randGen), randomMove(randGen));
+					int x = randomMove(randGen);
+					int y = randomMove(randGen);
+					enemies[i].move(x, y);
+					if (level.getChar(enemies[i].getX(), enemies[i].getY()) == '#') {
+						x = x * -1;
+						y = y * -1;
+						enemies[i].move(x, y);
+					}
 					level.setChar(enemies[i].getX(), enemies[i].getY(), 'S');
-				}
-
-				//enemies[1].testMethod();				
+				}	
 
 				switch (input) {
 				case 'a':
