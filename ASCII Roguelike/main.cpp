@@ -16,7 +16,7 @@ int main() {
 	std::mt19937 randGen(time(NULL));
 	std::vector<Enemy> enemies(3);
 	std::uniform_int_distribution<int> randomHp(1, 6);	
-	std::uniform_int_distribution<int> randomMove(0, 3);
+	std::uniform_int_distribution<int> randomMove(0, 1);
 	char input;
 	bool isRunning = true;
 	bool hasWon = false;
@@ -31,7 +31,7 @@ int main() {
 		do {
 			enemies[i].setX(randomXPlacement(randGen));
 			enemies[i].setY(randomYPlacement(randGen));
-		} while (level.getChar(enemies[i].getX(), enemies[i].getY()) == '#');
+		} while (level.getChar(enemies[i].getX(), enemies[i].getY()) != '.');
 		enemies[i].setAttack(randomHp(randGen));
 		unsigned int tmpHpValue = randomHp(randGen);
 	}	
@@ -53,6 +53,7 @@ int main() {
 				level.initLevel(level.getCurrentLevel());
 
 				for (int i = 0; i < enemies.size(); i++) {
+					enemies[i].move(randomMove(randGen), randomMove(randGen));
 					level.setChar(enemies[i].getX(), enemies[i].getY(), 'S');
 				}
 

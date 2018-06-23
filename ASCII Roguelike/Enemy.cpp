@@ -34,11 +34,8 @@ void Enemy::setAttack(int attack) {
 }
 
 void Enemy::move(int x, int y) {
-	_x++;
-}
-
-void Enemy::testMethod() {
-	_x++;
+	_x += x;
+	_y += y;
 }
 
 int Enemy::getX() {
