@@ -33,6 +33,14 @@ void Enemy::setAttack(int attack) {
 	_attack = attack;
 }
 
+void Enemy::move(int x, int y) {
+	_x++;
+}
+
+void Enemy::testMethod() {
+	_x++;
+}
+
 int Enemy::getX() {
 	return _x;
 }
