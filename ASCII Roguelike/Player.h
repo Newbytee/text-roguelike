@@ -2,7 +2,7 @@
 
 class Player {
 public:
-	int modHealth(int mod);
+	void modHealth(int mod);
 	void move(int x, int y);
 	void setX(int x);
 	void setY(int y);
@@ -12,6 +12,7 @@ public:
 	int getX();
 	int getY();
 	int getAttack();
+	int getHp();
 private:
 	int _x;
 	int _y;

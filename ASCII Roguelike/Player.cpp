@@ -1,7 +1,7 @@
 ﻿#include "Player.h"
 
-int Player::modHealth(int mod) {
-	return 0;
+void Player::modHealth(int mod) {
+	_hp -= mod;
 }
 
 void Player::move(int x, int y) {
@@ -39,4 +39,8 @@ int Player::getY() {
 
 int Player::getAttack() {
 	return _attack;
+}
+
+int Player::getHp() {
+	return _hp;
 }

@@ -7,7 +7,7 @@
 #include <random>
 #include <ctime>
 
-void initPlayer(Player &player, unsigned int x, unsigned int y, unsigned int hp, unsigned int maxHp);
+void initPlayer(Player &player, unsigned int x, unsigned int y, unsigned int attack, unsigned int hp, unsigned int maxHp);
 
 int main() {
 	Utils util;
@@ -23,7 +23,7 @@ int main() {
 	bool shouldBreak = false;
 	bool shouldRun = true;
 	level.setCurrentLevel(1);
-	initPlayer(player, 2, 2, 20, 40);
+	initPlayer(player, 2, 2, 3, 20, 40);
 	level.initLevel(level.getCurrentLevel());
 	std::uniform_int_distribution<unsigned int> randomXPlacement(1, level.getWidth() - 1);
 	std::uniform_int_distribution<unsigned int> randomYPlacement(1, level.getHeight() - 1);
@@ -34,6 +34,8 @@ int main() {
 		} while (level.getChar(enemies[i].getX(), enemies[i].getY()) != '.');
 		enemies[i].setAttack(randomHp(randGen));
 		unsigned int tmpHpValue = randomHp(randGen);
+		enemies[i].setHp(tmpHpValue);
+		enemies[i].setMaxHp(tmpHpValue * 2);
 	}	
 	for (unsigned int i = 0; i < enemies.size(); i++) {
 		level.setChar(enemies[i].getX(), enemies[i].getY(), 'S');
@@ -52,7 +54,7 @@ int main() {
 			if (shouldRun) {
 				level.initLevel(level.getCurrentLevel());
 
-				for (int i = 0; i < enemies.size(); i++) {
+				for (unsigned int i = 0; i < enemies.size(); i++) {
 					int x = randomMove(randGen);
 					int y = randomMove(randGen);
 					enemies[i].move(x, y);
@@ -126,6 +128,25 @@ int main() {
 
 				level.setChar(player.getX(), player.getY(), '&');
 				util.clearScreen();
+
+				for (unsigned int i = 0; i < enemies.size(); i++) {
+					if (level.getChar(enemies[i].getX(), enemies[i].getY() + 1) == '&' || level.getChar(enemies[i].getX(), enemies[i].getY() - 1) == '&' || level.getChar(enemies[i].getX(), enemies[i].getY() + 1) == '&' || level.getChar(enemies[i].getX() - 1, enemies[i].getY()) == '&' || level.getChar(enemies[i].getX() + 1, enemies[i].getY()) == '&' || level.getChar(enemies[i].getX() - 1, enemies[i].getY()) == '&') {
+						enemies[i].modHealth(player.getAttack());
+						player.modHealth(enemies[i].getAttack());
+						std::cout << "Attack!\n";
+					}
+					if (player.getHp() <= 0) {
+						hasWon = false;
+						isRunning = false;
+						shouldBreak = true;
+					}
+					if (enemies[i].getHp() <= 0) {
+						enemies.erase(enemies.begin() + i);
+						i--;
+						std::cout << "The enemy was slain!\n";
+					}
+				}
+
 				level.printLevel();
 			}
 			break;
@@ -144,9 +165,10 @@ int main() {
 	return 0;
 }
 
-void initPlayer(Player &player, unsigned int x, unsigned int y, unsigned int hp, unsigned int maxHp) {
+void initPlayer(Player &player, unsigned int x, unsigned int y, unsigned int attack, unsigned int hp, unsigned int maxHp) {
 	player.setX(x);
 	player.setY(y);
+	player.setAttack(attack);
 	player.setHp(hp);
 	player.setMaxHp(maxHp);
 }
