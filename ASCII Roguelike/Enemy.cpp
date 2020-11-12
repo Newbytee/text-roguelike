@@ -1,7 +1,6 @@
 #include "Enemy.h"
 
-Enemy::Enemy() {
-}
+Enemy::Enemy() = default;
 
 Enemy::Enemy(int x, int y, int attack, int hp, int maxHp) {
 	_x = x;

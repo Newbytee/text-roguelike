@@ -1,6 +1,5 @@
 #pragma once
 
-#include <conio.h>
 #include <string>
 
 class Utils {

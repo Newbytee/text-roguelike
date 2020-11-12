@@ -161,7 +161,11 @@ int main() {
 		std::cout << "You lose!\n";
 	}
 
+#ifdef _WIN32
 	system("PAUSE");
+#elif linux
+	system("read -rsp $'Press any key to continue...\n' -n 1 key");
+#endif
 	return 0;
 }
 
